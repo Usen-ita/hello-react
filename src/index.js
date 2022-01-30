@@ -1,25 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { useReducer} from 'react';
 
-function Lake(props){
-  return <h1>{props.name}</h1>
+function Checkbox() {
+  const [checked, toggle] = useReducer(checked => !checked, false)
+
+ 
+  return (
+    <>
+    <input type="checkbox" value={checked} onChange={toggle}/>
+    {checked? "checked": "not checked"}
+    </>
+  )
 }
 
-function App() {
-return(
-  <div>
-    <Lake name="Lake Tahoe" />
-    <Lake name="Angora Lake" />
-    <Lake name="Shirley Lake" />
-    
-  </div>
-)
-}
 
 ReactDOM.render(
-  <App/>,
+  <Checkbox />,
   document.getElementById('root')
 );
 
 
+
+
+ 
